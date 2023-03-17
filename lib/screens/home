@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You pushed the button:',
+              style: TextStyle(color: Colors.red),
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ), 
+            ElevatedButton(
+              onPressed: () {
+                print("game of thrones");
+                setState({}){
+                  if  (backgroundColor == Color.black) backgroundColor = Color.black;
+                  else backgroundColor = Color.brown;
+                }
+              },
+              child: Image.assets("assets/dragon queen.jfif"),
+              style: ButtonStyle{
+                backgroundColor: MaterialStatePropertyAll(backgroundColor),
+                shape: MaterialStatePropertyAll.all<RoundRectangleBorder>{
+                  RoundRectangleBorder(
+                    borderRadius: borderRadius.circular(25),
+                    side: BorderSide(Color: Color.blue),
+                  )
+                }
+              }
+            )          
+          ],
+        ),
+      ),
+      
+    ), 
+  }
+}
